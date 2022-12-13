@@ -1,26 +1,18 @@
-int pinLed []= {2,4};
+const int pinPotetiometerner = A0;
+const int led = 3;
 
-void setup() {
 
-  Serial.begin(9600);
-  for(int i = 0; i <= 1; i++){
-    pinMode(pinLed[i], OUTPUT);
-  }
+
+void setup() { 
   
+  Serial.begin(9600);
+  pinMode(led, OUTPUT);
 }
 
 void loop() {
-
-  if(digitalRead(pinLed[0]) == 0) {
-    
-  digitalWrite(pinLed[1], HIGH);
-  digitalWrite(pinLed[0], HIGH);
-  delay(300);
   
-  } else {
-    
-  digitalWrite(pinLed[1], LOW);
-  digitalWrite(pinLed[0], LOW);
-  delay(300);      
-  }
+  int readValue = analogRead(pinPotetiometerner);
+  Serial.println(readValue);
+  int newValue = map(readValue, 0, 1023, 0, 255);
+  analogWrite(led, newValue);  
 }
