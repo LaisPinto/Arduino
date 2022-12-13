@@ -1,16 +1,20 @@
-const int led = 3;
-const int pinPotentiometer = A0;
-
-int readValue = 0;
-
+const int led1 = 2;
+const int led2 = 4;
 void setup() {
-  Serial.begin(9600);
-  pinMode(led, OUTPUT);
+  
+  pinMode(led1,OUTPUT);
+  pinMode(led2,OUTPUT);
 }
 
 void loop() {
-  readValue = analogRead(pinPotentiometer);
-  Serial.println(readValue);
-  int newValue = map(readValue, 0, 1023, 0, 255);
-  analogWrite(led, newValue);
+  
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, HIGH);
+  delay(200);
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, LOW);
+  delay(200);
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, HIGH);
+  delay(200);
 }
