@@ -1,16 +1,9 @@
-int variableOne = 2;
-int variableTwo = 4;
-
-void setup() {
-  pinMode(variableOne, OUTPUT);
-  pinMode(variableTwo, OUTPUT);
+const int led = 2;
+void setup() { 
+  pinMode(led, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(variableOne, HIGH);
-  digitalWrite(variableTwo, LOW);
-  delay(200);
-  digitalWrite(variableTwo, HIGH);
-  digitalWrite(variableOne, LOW);
+  digitalWrite(led, HIGH);
   delay(200);
 }
