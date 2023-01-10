@@ -10,17 +10,15 @@ void setup() {
 }
 
 void loop() {
-  
-  if(digitalRead(pinLed[0]) == 0) {
-    
-  digitalWrite(pinLed[1], HIGH);
-  digitalWrite(pinLed[0], HIGH);
-  delay(300);
-  
-  } else {
-    
-  digitalWrite(pinLed[1], LOW);
-  digitalWrite(pinLed[0], LOW);
-  delay(300);      
+  for (int pinArduino = 0; pinArduino < numberPins; pinArduino++) {
+    digitalWrite(pin[pinArduino], HIGH);
+    delay(wait);
+    digitalWrite(pin[pinArduino], LOW);
+  }
+
+  for (int pinsArduino = numberPins - 1; pinsArduino >= 0; pinsArduino--) {
+    digitalWrite(pin[pinsArduino], HIGH);
+    delay(wait);
+    digitalWrite(pin[pinsArduino], LOW);
   }
 }
